@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: '/api' });
+const API = axios.create({ baseURL: `${process.env.REACT_APP_API_URL}/api` });
 
 API.interceptors.request.use(config => {
   const token = localStorage.getItem('token');
@@ -57,14 +57,11 @@ export const analyticsAPI = {
 };
 
 export const adminAPI = {
-  // Existing
   getStats: () => API.get('/admin/stats'),
   getUsers: (params) => API.get('/admin/users', { params }),
   toggleUser: (id) => API.put(`/admin/users/${id}/toggle`),
   changeRole: (id, role) => API.put(`/admin/users/${id}/role`, { role }),
   deleteUser: (id) => API.delete(`/admin/users/${id}`),
-
-  // New
   getUserDetail: (id) => API.get(`/admin/users/${id}/detail`),
   getAllApplications: (params) => API.get('/admin/applications', { params }),
   getAnalytics: () => API.get('/admin/analytics'),
