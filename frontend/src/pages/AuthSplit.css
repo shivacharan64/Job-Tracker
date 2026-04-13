@@ -1,0 +1,239 @@
+/* ── Auth Split Layout ── */
+.auth-split-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef0f5;
+  padding: 24px;
+}
+
+.auth-split-card {
+  display: flex;
+  width: 100%;
+  max-width: 860px;
+  min-height: 520px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.18);
+}
+
+/* LEFT dark panel */
+.auth-split-left {
+  flex: 0 0 340px;
+  background: #0f172a;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-split-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.auth-split-logo {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.auth-split-appname {
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.auth-split-tagline h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.auth-split-tagline p {
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+/* Chat bubbles */
+.auth-split-bubbles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-bubble {
+  padding: 10px 16px;
+  border-radius: 18px;
+  font-size: 13px;
+  font-weight: 500;
+  max-width: 90%;
+  line-height: 1.4;
+}
+
+.auth-bubble-left {
+  background: #1e293b;
+  color: #e2e8f0;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.auth-bubble-right {
+  background: #6366f1;
+  color: #fff;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+/* Decorative orbs */
+.auth-split-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.18;
+  filter: blur(60px);
+}
+.auth-orb-1 {
+  width: 220px; height: 220px;
+  background: #6366f1;
+  top: -60px; right: -60px;
+}
+.auth-orb-2 {
+  width: 160px; height: 160px;
+  background: #06b6d4;
+  bottom: -40px; left: -40px;
+}
+
+/* RIGHT white panel */
+.auth-split-right {
+  flex: 1;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 44px;
+}
+
+.auth-split-form-wrap {
+  width: 100%;
+  max-width: 380px;
+}
+
+.auth-split-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.auth-split-subtitle {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 28px;
+}
+
+.auth-split-group {
+  margin-bottom: 16px;
+}
+
+.auth-split-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.auth-split-input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #0f172a;
+  background: #f8fafc;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.auth-split-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.12);
+  background: #fff;
+}
+
+.auth-split-input::placeholder {
+  color: #aab4c4;
+}
+
+.auth-split-btn {
+  width: 100%;
+  padding: 13px;
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.auth-split-btn:hover:not(:disabled) {
+  background: #4f46e5;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(99,102,241,0.35);
+}
+
+.auth-split-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.auth-split-link {
+  font-size: 13px;
+  color: #6366f1;
+  font-weight: 500;
+}
+
+.auth-split-switch {
+  text-align: center;
+  margin-top: 22px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.auth-split-link-bold {
+  color: #6366f1;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 680px) {
+  .auth-split-card { flex-direction: column; max-width: 440px; }
+  .auth-split-left { flex: none; padding: 28px 24px; min-height: 200px; }
+  .auth-split-right { padding: 28px 24px; }
+  .auth-split-bubbles { margin-top: 16px; }
+}
