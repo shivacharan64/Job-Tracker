@@ -7,6 +7,7 @@ const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 
 const app = express();
+app.set('trust proxy', 1); // Fix for Render proxy / rate-limit error
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,

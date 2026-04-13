@@ -13,21 +13,27 @@ import Profile from './pages/Profile';
 import AdminPanel from './pages/AdminPanel';
 import ForgotPassword from './pages/ForgotPassword';
 
+const Spinner = () => (
+  <div style={{display:'flex',alignItems:'center',justifyContent:'center',height:'100vh'}}>
+    <div className="spinner" style={{width:40,height:40}} />
+  </div>
+);
+
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useAuth();
-  if (loading) return <div style={{display:'flex',alignItems:'center',justifyContent:'center',height:'100vh'}}><div className="spinner" style={{width:40,height:40}} /></div>;
+  if (loading) return <Spinner />;
   return user ? children : <Navigate to="/login" />;
 };
 
 const AdminRoute = ({ children }) => {
   const { user, loading } = useAuth();
-  if (loading) return null;
+  if (loading) return <Spinner />;
   return user?.role === 'admin' ? children : <Navigate to="/dashboard" />;
 };
 
 const PublicRoute = ({ children }) => {
   const { user, loading } = useAuth();
-  if (loading) return null;
+  if (loading) return <Spinner />;
   return user ? <Navigate to="/dashboard" /> : children;
 };
 
