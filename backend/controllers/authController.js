@@ -17,15 +17,6 @@ exports.register = async (req, res) => {
 
     const user = await User.create({ name, email, password, jobTitle, location });
 
-    // Welcome email
-    try {
-      await sendEmail({
-        to: email,
-        subject: '🎉 Welcome to JobTracker Pro!',
-        html: `<h2>Welcome ${name}!</h2><p>Your account has been created successfully. Start tracking your job applications today!</p>`
-      });
-    } catch (e) { /* email not critical */ }
-
     sendTokenResponse(user, 201, res);
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
